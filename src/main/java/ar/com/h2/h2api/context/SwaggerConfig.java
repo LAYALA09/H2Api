@@ -1,7 +1,9 @@
 package ar.com.h2.h2api.context;
 
+import io.swagger.annotations.Api;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -10,31 +12,35 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+
 import java.util.Collections;
+// Usamos para la configuracion de  doc de  la API REST
 @Configuration
-@EnableSwagger2
+
 public class SwaggerConfig {
     @Bean
-    public Docket apiDocket() {
+    public Docket apiD() {
+
+
         return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiDetails())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("ar.com.h2.h2api.controller"))
+                .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
-                .build()
-                .apiInfo(getApiInfo())
-                ;
+                .build();
+
+
     }
 
-    private ApiInfo getApiInfo() {
-        return new ApiInfo(
-                "Todo H2 API",
-                "La API RESe de H2 App",
-                "v1",
-                "Terms of service",
-                new Contact("H2 Tech", "www.example.com", "ayaadress@company.com"),
-                "LICENSE API",
-                "API LICENSE URL",
-                Collections.emptyList()
-        );
+    private ApiInfo apiDetails() {
+return new ApiInfo("Spring Boot API REST",
+                "Library Api rest docs",
+                "1.0",
+                "https://www.google.com.ar",
+                new Contact("Liliana","https://www.google.com.ar", "alan@example.com" ),
+                "MIT",
+                "https://www.google.com.ar",
+                Collections.emptyList());
+
     }
 }
