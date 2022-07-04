@@ -1,14 +1,13 @@
 package ar.com.h2.h2api.persistence.entity;
 
 import lombok.Data;
-import lombok.Generated;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 @Data
 @Entity
 @Table(name="task")
-public class Task {
+public class MovieEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
@@ -17,6 +16,6 @@ public class Task {
     private LocalDateTime createdate;
     private LocalDateTime eta;
     private boolean finished;
-    private TaskStatus taskStatus;
+    private CharacterEntity taskStatus;
 
 }

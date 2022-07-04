@@ -1,5 +1,5 @@
 package ar.com.h2.h2api.persistence.entity;
 
-public enum TaskStatus {
+public enum CharacterEntity {
     ON_TIME, LATE
 }
