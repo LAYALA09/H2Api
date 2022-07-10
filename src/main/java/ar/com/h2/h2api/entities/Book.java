@@ -21,9 +21,9 @@ public class Book {
     @NotNull(message = "Title is required")
     private String title;
     @NotNull(message = "Pages is required")
-    private String pages;
+    private Integer pages;
     @NotBlank(message = "Author is required")
-    private float author;
+    private String author;
     @NotNull(message = "Price is required")
     private Double price;
     @NotNull(message = "Release date  is required")
