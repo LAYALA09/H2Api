@@ -16,12 +16,12 @@ public class BookDTO {
     private String title;
     @NotNull(message = "Pages is required")
     private Integer pages;
-    @NotBlank(message = "Author is required")
+   @NotBlank(message = "Author is required")
     private String author;
-    @NotNull(message = "Price is required")
+   @NotNull(message = "Price is required")
     private Double price;
     @NotNull(message = "Release date  is required")
     private LocalDate releaseDate;
-    @NotBlank(message = "Online is required")
+   @NotBlank(message = "Online is required")
     private Boolean online;
 }

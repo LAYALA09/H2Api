@@ -21,7 +21,7 @@ public class BookMapper {
 
     }
     //Entity to DTo
-    public BookDTO Book2DTO(Book entity){
+    public BookDTO book2DTO(Book entity){
         BookDTO dto=new BookDTO();
         dto.setId(entity.getId());
         dto.setTitle(entity.getTitle());

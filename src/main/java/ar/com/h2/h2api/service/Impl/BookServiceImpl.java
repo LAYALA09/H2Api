@@ -9,8 +9,6 @@ import ar.com.h2.h2api.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.validation.Validation;
-
 @Service
 public class BookServiceImpl implements BookService {
     @Autowired
@@ -23,7 +21,7 @@ public class BookServiceImpl implements BookService {
         validation(dto);
         Book entity=bookMapper.bookDto2Entity(dto);
         Book entitySaved=bookRepository.save(entity);
-        BookDTO result=bookMapper.Book2DTO(entitySaved);
+        BookDTO result=bookMapper.book2DTO(entitySaved);
         return result;
 
 
