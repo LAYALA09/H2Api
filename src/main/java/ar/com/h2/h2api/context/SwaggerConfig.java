@@ -4,16 +4,18 @@ package ar.com.h2.h2api.context;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 ;
+import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Collections;
 
-//http://localhost:8080/swagger-ui
+//http://localhost:8080/swagger-ui.html
 
 @EnableSwagger2
 
@@ -29,20 +31,15 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("ar.com.h2.h2api"))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+                .apiInfo(apiDetails());
 
 
     }
 
-  /*  private ApiInfo apiDetails() {
-return new ApiInfo("..Spring Boot API REST",
-                "Library Api rest docs",
-                "1.0",
-                "https://www.google.com.ar",
-                new Contact("Liliana","https://www.google.com.ar", "alan@example.com" ),
-                "MIT",
-                "https://www.google.com.ar",
-                Collections.emptyList());
+    private ApiInfo apiDetails() {
+        return new ApiInfoBuilder().title("Libros").
+                description("Swagger tutorial").license("Libros").build();
 
-    }*/
+    }
 }
